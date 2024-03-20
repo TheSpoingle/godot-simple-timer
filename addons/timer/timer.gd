@@ -93,6 +93,10 @@ func _process(delta):
 	var time_string = "  " + ("PAUSED: " if paused else "Timer: ") + _get_time_string(current_second) + "  "
 	main_button.text = time_string
 	
+	# Update tooltip (hover text) for main button
+	var total_hours = round((current_second / 3600.0) * 10) / 10
+	main_button.tooltip_text = str(total_hours) + " hours\nTimer Plugin by TheSpoingle"
+	
 	# Show progress for current day
 	progress_bar.value = current_second % 86400 / 86400.0
 
